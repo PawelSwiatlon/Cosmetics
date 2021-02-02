@@ -3,8 +3,10 @@ import styles from './NavItems.module.scss';
 
 const NavItems = () => {
     return(
-        <div>
-
+        <div className={styles.wrapper}>
+            <p>Kosmetyki</p>
+            <p>Składy</p>
+            <p>Info</p>
         </div>
     )
 }
