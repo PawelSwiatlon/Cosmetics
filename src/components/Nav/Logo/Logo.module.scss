@@ -1,4 +1,14 @@
 .wrapper {
-    border: 1px solid red;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1vw;
+    letter-spacing: 5px;
+
+    &::first-letter {
+        border-bottom: 1px solid black;
+        letter-spacing: 0px;
+        margin-right: 5px;
+        color: #EFA8E4;
+    }
 }

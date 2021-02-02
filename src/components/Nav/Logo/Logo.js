@@ -3,9 +3,9 @@ import styles from './Logo.module.scss';
 
 const Logo = () => {
     return(
-        <div className={styles.wrapper}>
-            <p>Cosmetic</p>
-        </div>
+        <p className={styles.wrapper}>
+            Cosmetic
+        </p>
     )
 }
 

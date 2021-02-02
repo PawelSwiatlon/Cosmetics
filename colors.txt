@@ -1,3 +1,5 @@
-#F8E1F4 - róż pudrowy
+#EFA8E4 |- róż pudrowy
+#F7BEFF |
+
 #FFFFFF - biały
 #0A0A0A - czarny
