@@ -37,6 +37,10 @@ const Ingredients = () => {
             descriptionInputContent: ''  
         })
     }
+    const deleteItem = id => {
+        const newIngridientsList = ingredients.filter( item => item.id !== id);
+        setIngredients([...newIngridientsList]);
+    }
     return(
         <div className={style.wrapper}>
             <div>
@@ -45,7 +49,8 @@ const Ingredients = () => {
                         Id:{item.id}<br/>
                         Name:{item.name}<br/>
                         Icon:{item.icon}<br/>
-                        Description:{item.description}
+                        Description:{item.description}<br/>
+                        <button onClick={() => {deleteItem(item.id)}}>Delete</button>
                         <br/><br/><br/>
                     </p>
                 ))}
