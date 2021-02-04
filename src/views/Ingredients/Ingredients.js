@@ -1,53 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import style from './Ingredients.module.scss';
 
 const Ingredients = () => {
+    const [ inputsContent, setInputContent ] = useReducer( 
+        (state, newState) => ({...state, ...newState}),
+        {
+          nameInputContent: '',
+          iconInputContent: '',
+          descriptionInputContent: ''  
+        }
+    );
     const [ingredients, setIngredients] = useState([
         {
             id:"1",
-            name:"item1",
-            icon:"item1",
-            description: 'test'
-        },
-        {
-            id:"2",
-            name:"item2",
-            icon:"item2",
-            description: 'test'
-        },
-        {
-            id:"3",
-            name:"item3",
-            icon:"item3",
-            description: 'test'
+            name:"Test Name",
+            icon:"Test Icon",
+            description: 'Test Description'
         },
     ]);
-    const [ inputName, setInputName ] = useState();
-    const [ inputIcon, setInputIcon ] = useState();
-    const [ inputDescription, setInputDescription ] = useState();
-    const handleInputName = (e) => {
-        setInputName(e.target.value);   
-    }
-    const handleInputIcon = (e) => {
-        setInputIcon(e.target.value);   
-    }
-    const handleInputDescription = (e) => {
-        setInputDescription(e.target.value);   
-    }
+    const handleInputChange = e => {
+        setInputContent({
+            [e.target.name]: e.target.value,
+        });
+    } 
     const addItem = () => {
         const newItem = {
             id: ingredients.length+1,
-            name: inputName,
-            icon: inputIcon,
-            description: inputDescription
+            name: inputsContent.nameInputContent,
+            icon: inputsContent.iconInputContent,
+            description: inputsContent.descriptionInputContent
         };
-        setIngredients([...ingredients, newItem])
-        clearInput('');
-    }
-    const clearInput = () => {
-        setInputName('');
-        setInputIcon('');
-        setInputDescription('');
+        setIngredients([...ingredients, newItem]);
+        setInputContent({
+            nameInputContent: '',
+            iconInputContent: '',
+            descriptionInputContent: ''  
+        })
     }
     return(
         <div className={style.wrapper}>
@@ -65,22 +53,23 @@ const Ingredients = () => {
             <div className={style.items}>
                 <input 
                     type="text"
-                    name="name" 
+                    name="nameInputContent" 
                     placeholder="name" 
-                    onChange={handleInputName}
-                    value={inputName}/>
+                    onChange={handleInputChange}
+                    value={inputsContent.nameInputContent}/>
                 <input 
                     type="text" 
-                    name="icon" 
+                    name="iconInputContent" 
                     placeholder="icon" 
-                    onChange={handleInputIcon}
-                    value={inputIcon}/>
+                    onChange={handleInputChange}
+                    value={inputsContent.iconInputContent}/>
                 <input 
                     type="text" 
-                    name="description" 
+                    name="descriptionInputContent" 
                     placeholder="description" 
-                    onChange={handleInputDescription}
-                    value={inputDescription}/>
+                    onChange={handleInputChange}
+                    value={inputsContent.descriptionInputContent}/>
+
                 <button onClick={addItem}>Add item</button>
             </div>
         </div>  
