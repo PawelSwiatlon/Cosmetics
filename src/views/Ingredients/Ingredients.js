@@ -2,6 +2,7 @@ import React, { useState, useReducer } from 'react';
 import style from './Ingredients.module.scss';
 
 const Ingredients = () => {
+    //create input context
     const [ inputsContent, setInputContent ] = useReducer( 
         (state, newState) => ({...state, ...newState}),
         {
@@ -10,6 +11,7 @@ const Ingredients = () => {
           descriptionInputContent: ''  
         }
     );
+    //Ingredients list
     const [ingredients, setIngredients] = useState([
         {
             id:"1",
@@ -18,11 +20,13 @@ const Ingredients = () => {
             description: 'Test Description'
         },
     ]);
+    //Handle input change - update input context state
     const handleInputChange = e => {
         setInputContent({
             [e.target.name]: e.target.value,
         });
     } 
+    //Add item method
     const addItem = () => {
         const newItem = {
             id: ingredients.length+1,
@@ -37,6 +41,7 @@ const Ingredients = () => {
             descriptionInputContent: ''  
         })
     }
+    //Delete item method
     const deleteItem = id => {
         const newIngridientsList = ingredients.filter( item => item.id !== id);
         setIngredients([...newIngridientsList]);
