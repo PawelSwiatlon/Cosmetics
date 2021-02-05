@@ -6,9 +6,9 @@ import Ingredients from '../Ingredients/Ingredients';
 function Root() {
   return (
     <div>
+      <Nav></Nav>
+      <Heding></Heding>
       <Ingredients></Ingredients>
-      {/* <Nav></Nav>
-      <Heding></Heding> */}
     </div>
   );
 }
