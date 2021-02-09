@@ -1,3 +1,4 @@
+@import '../../../globalStyle.module.scss';
 .wrapper {
     text-transform: uppercase;
     font: {
@@ -5,12 +6,12 @@
         size: 1.5vw;
     }
     letter-spacing: 5px;
-    color: whitesmoke;
+    color: $yellow;
 
     &::first-letter {
-        border-bottom: 1.5px solid whitesmoke;
+        border-bottom: 1.5px solid $whiteSmoke;
         letter-spacing: 0px;
         margin-right: 5px;
-        color: whitesmoke;
+        color: $whiteSmoke;
     }
 }
