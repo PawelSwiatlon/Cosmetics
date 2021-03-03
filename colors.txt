@@ -3,3 +3,9 @@ czarny
 biały
 czerwony
 żółty 
+
+
+$dark: #161616;
+$yellow: #F2E205;
+$whiteSmoke: #F5F5F5;
+$red: #FF073A;
