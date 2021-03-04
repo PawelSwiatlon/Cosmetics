@@ -3,26 +3,25 @@ import React, { useState } from 'react';
 // Import styles scss
 import styles from './Nav.module.scss';
 
-// Import Private Components
+// Import private components
 import NavLogo from './NavLogo/NavLogo';
 import NavItem from './NavItem/NavItem';
 
+// Import public components
+import HamburgerButton from '../HamburgerButton/HamburgerButton';
 
 const Nav = ({ logoText, navItems }) => {
-    const [openHamburger, setOpenHamburger] = useState(false);
-
+    const [HamburgerStatus, setHamburgerStatus] = useState(false);
     return (
         <div className={styles.wrapper}>
             <NavLogo>{logoText}</NavLogo>
-            <div className={styles.hamburger__Box} onClick={() => setOpenHamburger(!openHamburger)}>
-                <p className={styles.hamburger__Item}></p>
-                <p className={styles.hamburger__Item}></p>
-                <p className={styles.hamburger__Item}></p>
-            </div>
-            {openHamburger ?
+            <HamburgerButton
+                changeHamburgerStatus={() => setHamburgerStatus(!HamburgerStatus)}
+                HamburgerStatusInfo={HamburgerStatus} />
+            {HamburgerStatus ?
                 <div className={styles.navItems__Box}>
                     {navItems.map(item => {
-                        return <NavItem>{item}</NavItem>
+                        return <NavItem key={item}>{item}</NavItem>
                     })}
                 </div> : ''
             }
