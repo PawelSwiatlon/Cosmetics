@@ -18,13 +18,11 @@ const Nav = ({ logoText, navItems }) => {
             <HamburgerButton
                 changeHamburgerStatus={() => setHamburgerStatus(!HamburgerStatus)}
                 HamburgerStatusInfo={HamburgerStatus} />
-            {HamburgerStatus ?
-                <div className={styles.navItems__Box}>
-                    {navItems.map(item => {
-                        return <NavItem key={item}>{item}</NavItem>
-                    })}
-                </div> : ''
-            }
+            <div className={HamburgerStatus ? styles.navItems__active : styles.navItems__Box}>
+                {navItems.map(item => {
+                    return <NavItem key={item}>{item}</NavItem>
+                })}
+            </div>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Import styles scss
 import styles from './HamburgerButton.module.scss';

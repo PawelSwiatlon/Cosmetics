@@ -1,14 +1,22 @@
 // Import styles scss
 import styles from './Root.module.scss';
 
+// Import library react-router-dom 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 // Import Public Components
 import Nav from '../../components/Nav/Nav';
 
 function Root() {
   return (
-    <div className={styles.wraper}>
-      <Nav logoText="Cosmetic" navItems={['Home', 'About', 'Contact']} />
-    </div>
+    <BrowserRouter>
+      <>
+        <Nav logoText="Cosmetic" navItems={['Home', 'About', 'Contact']} />
+        <Switch>
+
+        </Switch>
+      </>
+    </BrowserRouter>
   );
 }
 
