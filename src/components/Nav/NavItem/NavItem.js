@@ -6,13 +6,13 @@ import { NavLink } from 'react-router-dom';
 // Import styles scss
 import styles from './NavItem.module.scss';
 
-const NavItem = (props) => {
+const NavItem = ({ page, path }) => {
     return (
         <NavLink exact
             className={styles.navItem}
             activeClassName={styles.navItemActive}
-            to={props.children}>
-            {props.children}
+            to={path}>
+            {page}
         </NavLink>
     );
 }

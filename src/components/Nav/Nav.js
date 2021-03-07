@@ -20,7 +20,7 @@ const Nav = ({ logoText, navItems }) => {
                 HamburgerStatusInfo={HamburgerStatus} />
             <div className={HamburgerStatus ? styles.navItems__active : styles.navItems__Box}>
                 {navItems.map(item => {
-                    return <NavItem key={item}>{item}</NavItem>
+                    return <NavItem key={item.page} page={item.page} path={item.path} />
                 })}
             </div>
         </div>
